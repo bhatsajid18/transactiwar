@@ -1,0 +1,3 @@
+-- Test accounts are created by create_accounts.php via the entrypoint script.
+-- This ensures bcrypt hashes are properly generated at runtime by PHP.
+-- This file is intentionally kept empty for schema-only initialization.
