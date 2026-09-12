@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Redirect all requests to index.php (except existing files)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+# Block access to hidden files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes
+
+# Prevent access to PHP files in subdirectories (shouldn't exist)
+<FilesMatch "\.php$">
+    <If "%{REQUEST_URI} !~ m#^/index\.php#">
+        Require all denied
+    </If>
+</FilesMatch>
