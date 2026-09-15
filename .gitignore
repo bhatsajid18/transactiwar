@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.local
+*.log
+uploads/*
+!uploads/.gitkeep
+docker/msmtp.conf
+.vscode/
+.idea/
